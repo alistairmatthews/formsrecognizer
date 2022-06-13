@@ -26,9 +26,9 @@ az storage container create --account-name $storageAccName --name 1099examples -
 
 # Upload the sample data
 
-az storage blob upload-batch -d 1040examples --account-name $storageAccName -s "trainingdata/1040examples" --pattern *.pdf
-az storage blob upload-batch -d 1099examples --account-name $storageAccName -s "trainingdata/1099examples" --pattern *.pdf
+az storage blob upload-batch -d 1040examples --account-name $storageAccName --connection-string $connectionString -s "trainingdata/1040examples" --pattern *.pdf
+az storage blob upload-batch -d 1099examples --account-name $storageAccName --connection-string $connectionString -s "trainingdata/1099examples" --pattern *.pdf
 
 # Create the Forms Recognizer resource
 printf "Setting up the Forms Recognizer resource. \n\n"
-az cognitiveservices add account create --kind FormRecognizer --location westus --name FormsRecognizer --resource-group $resourceGroupName --sku F0 --yes
+az cognitiveservices account create --kind FormRecognizer --location westus --name FormsRecognizer --resource-group $resourceGroupName --sku F0 --yes
