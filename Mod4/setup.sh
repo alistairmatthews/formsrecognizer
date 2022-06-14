@@ -26,11 +26,13 @@ az storage cors add --methods DELETE GET HEAD MERGE OPTIONS POST PUT --origins *
 printf "${GREEN}Creating containers for the sample forms. \n${NORMAL}"
 az storage container create --account-name $storageAccName --name 1040examples --auth-mode login
 az storage container create --account-name $storageAccName --name 1099examples --auth-mode login
+az storage container create --account-name $storageAccName --name TestDoc --auth-mode login
 
 # Upload the sample data
 printf "${GREEN}Uploading the sample forms to the storage account. \n${NORMAL}"
 az storage blob upload-batch -d 1040examples --account-name $storageAccName --connection-string $connectionString -s "trainingdata/1040examples" --pattern *.pdf
 az storage blob upload-batch -d 1099examples --account-name $storageAccName --connection-string $connectionString -s "trainingdata/1099examples" --pattern *.pdf
+az storage blob upload-batch -d TestDoc --account-name $storageAccName --connection-string $connectionString -s "trainingdata/TestDoc" --pattern *.pdf
 
 # Create the Forms Recognizer resource
 printf "${GREEN} Setting up the Forms Recognizer resource. \n${NORMAL}"
