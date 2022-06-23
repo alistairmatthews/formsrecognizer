@@ -19,6 +19,6 @@ az cognitiveservices account create --kind FormRecognizer --location westus --na
 
 ## Create the Cognitive Search 
 printf "${GREEN}Setting up Azure Cognitive Search. \n${NORMAL}"
-az search service create --name CognitiveSearch --location westus --resource-group $resourceGroupName --sku Free --partition-count 1 --replica-count 1
+az search service create --name enrichedcognitivesearch --location westus --resource-group $resourceGroupName --sku Free --partition-count 1 --replica-count 1
 
 printf "${GREEN}Setup completed. \n${NORMAL}"
