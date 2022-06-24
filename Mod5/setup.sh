@@ -10,7 +10,7 @@ printf "${GREEN}Setting up the $resourceGroupName resource group. \n${NORMAL}"
 az group create --location westus --name FormsRecognizerResources
 
 # Create a name for the storage account
-storageAccName=skillfunctionstorage$((10000 + RANDOM % 99999))
+storageAccName=skillfuncstorage$((10000 + RANDOM % 99999))
 
 # Set up the Azure Storage account
 printf "${GREEN}Setting up the $storageAccName storage account. \n${NORMAL}"
