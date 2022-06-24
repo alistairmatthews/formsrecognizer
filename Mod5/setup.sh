@@ -9,13 +9,6 @@ resourceGroupName=FormsRecognizerResources
 printf "${GREEN}Setting up the $resourceGroupName resource group. \n${NORMAL}"
 az group create --location westus --name FormsRecognizerResources
 
-# Create a name for the storage account
-storageAccName=skillfuncstorage$((10000 + RANDOM % 99999))
-
-# Set up the Azure Storage account
-printf "${GREEN}Setting up the $storageAccName storage account. \n${NORMAL}"
-az storage account create --name $storageAccName --resource-group $resourceGroupName --kind StorageV2 --sku Standard_LRS
-
 # Create the Forms Recognizer resource
 printf "${GREEN}Setting up the Forms Recognizer resource. \n${NORMAL}"
 # First, purge it in case there's a recently deleted one
